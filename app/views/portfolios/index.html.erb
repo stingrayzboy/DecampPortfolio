@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<% @portfolio_items.each do |portfolio|%>
+		<div>
+		<p><%=portfolio.title%></p>
+		<p><%=portfolio.subtitle%></p>
+		<p><%=portfolio.body%></p>
+		<%=image_tag portfolio.thumb_image%>
+		</div>	
+		<br>	
+	<% end %>
+</body>
+</html>
