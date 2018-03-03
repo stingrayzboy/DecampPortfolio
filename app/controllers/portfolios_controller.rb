@@ -15,6 +15,12 @@ class PortfoliosController < ApplicationController
 		@portfolio=Portfolio.find(params[:id])
 	end
 
+	def destroy
+    	@portfolio=Portfolio.find(params[:id])
+    	@portfolio.destroy
+    	redirect_to portfolios_path
+    end
+
 	def create
 	    @blog = Portfolio.new(params.require(:portfolio).permit(:title, :body,:thumb_image,:main_image,:subtitle))
 
@@ -32,15 +38,14 @@ class PortfoliosController < ApplicationController
     def update
     	@portfolio=Portfolio.find(params[:id])
     	respond_to do |format|
-      if @portfolio.update(params.require(:portfolio).permit(:title, :body,:thumb_image,:main_image,:subtitle))
-        format.html { redirect_to portfolios_path, notice: 'Blog was successfully updated.' }
-        format.json { render :show, status: :ok, location: @blog }
-      else
-        format.html { render :edit }
-        format.json { render json: @blog.errors, status: :unprocessable_entity }
-      end
+	      if @portfolio.update(params.require(:portfolio).permit(:title, :body,:thumb_image,:main_image,:subtitle))
+	        format.html { redirect_to portfolios_path, notice: 'Blog was successfully updated.' }
+	        format.json { render :show, status: :ok, location: @blog }
+	      else
+	        format.html { render :edit }
+	        format.json { render json: @blog.errors, status: :unprocessable_entity }
+	      end
+    	end
     end
-    
-	
-	end
+
 end
