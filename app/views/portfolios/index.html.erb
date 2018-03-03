@@ -7,13 +7,13 @@
 	<p><%=button_to "New",new_portfolio_path,method:"get"%></p>
 	<% @portfolio_items.each do |portfolio|%>
 		<div>
-		<p><%=portfolio.title%></p>
+		<p><%=link_to portfolio.title,portfolio_path(portfolio)%></p>
 		<p><%=portfolio.subtitle%></p>
-		<p><%=portfolio.body%></p>
+		<!-- <p><%=portfolio.body%></p> -->
 		<%=image_tag portfolio.thumb_image||"https://briggo.com/wp-content/uploads/2013/03/image-alignment-300x200-300x200.jpg"%>
 		</div>	
 		<br>
-		<%= button_to "Edit",edit_portfolio_path(portfolio.id),method:"get"%>	
+		<%= button_to "Edit",edit_portfolio_path(portfolio),method:"get"%>	
 	<% end %>
 </body>
 </html>

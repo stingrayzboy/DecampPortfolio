@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<%=image_tag @portfolio.main_image unless @portfolio.main_image.nil?%>
+<h1><%=@portfolio.title%></h1>
+<h3><%=@portfolio.subtitle%></h3>
+
+<p><%=@portfolio.body%></p>
+
+</body>
+</html>
