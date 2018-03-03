@@ -4,6 +4,7 @@
 	<title></title>
 </head>
 <body>
+	<p><%=button_to "New",new_portfolio_path,method:"get"%></p>
 	<% @portfolio_items.each do |portfolio|%>
 		<div>
 		<p><%=portfolio.title%></p>
