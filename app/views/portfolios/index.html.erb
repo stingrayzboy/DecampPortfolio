@@ -11,7 +11,8 @@
 		<p><%=portfolio.body%></p>
 		<%=image_tag portfolio.thumb_image||"https://briggo.com/wp-content/uploads/2013/03/image-alignment-300x200-300x200.jpg"%>
 		</div>	
-		<br>	
+		<br>
+		<%= button_to "Edit",edit_portfolio_path(portfolio.id),method:"get"%>	
 	<% end %>
 </body>
 </html>
