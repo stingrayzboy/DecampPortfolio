@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy, :bazzinga]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
 
   # GET /blogs
   # GET /blogs.json
@@ -7,7 +7,8 @@ class BlogsController < ApplicationController
     @blogs = Blog.all
   end
   
-  def bazzinga
+  def toggle_status
+    #byebug
     if @blog.draft?
       @blog.published!
     else
