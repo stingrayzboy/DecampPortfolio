@@ -7,7 +7,7 @@
 	<p><%=button_to "New",new_portfolio_path,method:"get"%></p>
 	<% @portfolio_items.each do |portfolio|%>
 		<div>
-		<p><%=link_to portfolio.title,portfolio_path(portfolio)%></p>
+		<p><%=link_to portfolio.title,show_portfolio_path(portfolio.id)%></p>
 		<p><%=portfolio.subtitle%></p>
 		<!-- <p><%=portfolio.body%></p> -->
 		<%=image_tag portfolio.thumb_image||"https://briggo.com/wp-content/uploads/2013/03/image-alignment-300x200-300x200.jpg"%>
