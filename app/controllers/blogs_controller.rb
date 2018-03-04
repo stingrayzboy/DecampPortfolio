@@ -1,12 +1,20 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :bazzinga]
 
   # GET /blogs
   # GET /blogs.json
   def index
     @blogs = Blog.all
   end
-
+  
+  def bazzinga
+    if @blog.draft?
+      @blog.published!
+    else
+      @blog.draft!
+    end
+    redirect_to blogs_path,notice: "Blog #{@blog.status} "
+  end
   # GET /blogs/1
   # GET /blogs/1.json
   def show
