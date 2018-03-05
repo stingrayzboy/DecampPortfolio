@@ -1,6 +1,6 @@
 class PortfoliosController < ApplicationController
 	def index
-		@portfolio_items=Portfolio.all	
+		@portfolio_items=Portfolio.all
 	end
 
 	def edit
@@ -9,6 +9,7 @@ class PortfoliosController < ApplicationController
 
 	def new
 		@portfolio=Portfolio.new
+		3.times {@portfolio.technologies.build}
 	end
 	
 	def show
@@ -22,7 +23,8 @@ class PortfoliosController < ApplicationController
     end
 
 	def create
-	    @blog = Portfolio.new(params.require(:portfolio).permit(:title, :body,:thumb_image,:main_image,:subtitle))
+	    @blog = Portfolio.new(params.require(:portfolio).permit(:title, :body,:thumb_image,:main_image,:subtitle,
+	    	technologies_attributes:[:name]))
 
 	    respond_to do |format|
 	      if @blog.save

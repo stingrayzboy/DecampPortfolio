@@ -9,6 +9,9 @@
 <h3><%=@portfolio.subtitle%></h3>
 
 <p><%=@portfolio.body%></p>
-
+<h2>Technologies Used:</h2>
+<%@portfolio.technologies.each do |f|%>
+<p><%=f.name%></p>
+<%end%>
 </body>
 </html>
