@@ -46,3 +46,10 @@ end
 end
 
 puts "9 portfolio created"
+
+3.times do |technology|
+	Portfolio.last.technologies.create!(
+		name:"Technology #{technology+1}"
+		)
+end
+puts "Added 3 technologies on portfolio last"
