@@ -28,8 +28,8 @@ class PortfoliosController < ApplicationController
 	    #byebug
 
 	    respond_to do |format|
-	      #if Portfolio::save_sexy(@blog)
-	      if @blog.save
+	      if Portfolio::save_sexy(@blog)
+	      #if @blog.save
 	        format.html { redirect_to portfolios_path, notice: 'Portfolio was successfully created.' }
 	        format.json { render :show, status: :created, location: @blog }
 	      else
