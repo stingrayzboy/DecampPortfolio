@@ -35,4 +35,5 @@ class Portfolio < ApplicationRecord
 		blog.destroy
 		return @blog2.save
 	end
+	
 end

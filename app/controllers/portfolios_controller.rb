@@ -5,6 +5,7 @@ class PortfoliosController < ApplicationController
 
 	def edit
 		@portfolio=Portfolio.find(params[:id])
+
 	end
 
 	def new
@@ -23,8 +24,7 @@ class PortfoliosController < ApplicationController
     end
 
 	def create
-	    @blog = Portfolio.new(params.require(:portfolio).permit(:title, :body,:thumb_image,:main_image,:subtitle,
-	    	technologies_attributes:[:name]))
+	    @blog = Portfolio.new(portfolio_params)
 	    #byebug
 
 	    respond_to do |format|
@@ -42,7 +42,7 @@ class PortfoliosController < ApplicationController
     def update
     	@portfolio=Portfolio.find(params[:id])
     	respond_to do |format|
-	      if @portfolio.update(params.require(:portfolio).permit(:title, :body,:thumb_image,:main_image,:subtitle))
+	      if @portfolio.update(portfolio_params)
 	        format.html { redirect_to portfolios_path, notice: 'Blog was successfully updated.' }
 	        format.json { render :show, status: :ok, location: @blog }
 	      else
@@ -50,6 +50,13 @@ class PortfoliosController < ApplicationController
 	        format.json { render json: @blog.errors, status: :unprocessable_entity }
 	      end
     	end
+    end
+
+    private 
+    
+    def portfolio_params
+    	params.require(:portfolio).permit(:title, :body,:thumb_image,:main_image,:subtitle,
+	    	technologies_attributes:[:name])
     end
 
 end
