@@ -4,4 +4,6 @@ class ApplicationController < ActionController::Base
   include DeviseWhitelist
   include SessionSetting
   include CurrentUserConcern
+  include DynamicTitle
+
 end
