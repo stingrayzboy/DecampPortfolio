@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DevcampPortfolio</title>
+    <title><%=@page_title%></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <div><%=link_to "Home",root_path%></div>
+    <div><%=link_to "About",pages_about_path%></div>
+    <div><%=link_to "Contact",pages_contact_path%></div>
+    <div><%=link_to "Blog",blogs_path%></div>
+    <div><%=link_to "Portfolio",portfolios_path%></div>
+
   		<p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
 

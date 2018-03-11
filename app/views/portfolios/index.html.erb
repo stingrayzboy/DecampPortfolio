@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
 	<p><%=button_to "New",new_portfolio_path,method:"get"%></p>
 	<% @portfolio_items.each do |portfolio|%>
 		<div>
@@ -17,5 +11,3 @@
 		<%= button_to "Delete",portfolio_path(portfolio),method:"delete",data:{confirm:"Are you Sure?"}%>
 			
 	<% end %>
-</body>
-</html>
