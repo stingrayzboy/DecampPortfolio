@@ -7,13 +7,13 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version:2.4.0p0
 
-* System dependencies
+* System dependencies:Rails 5.1.0,PostgresSql port:5431
 
 * Configuration
 
-* Database creation
+* Database creation:run rails db:setup
 
 * Database initialization
 

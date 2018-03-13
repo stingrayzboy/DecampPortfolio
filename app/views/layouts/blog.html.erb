@@ -25,6 +25,6 @@
     <%if session[:source]%>
       Thanks From Visiting From <%=session[:source].inspect%>
     <%end%>
-    <%=render "shared/nav_bar"%>
+    <%=render "shared/nav_bar",location:"bottom"%>
   </body>
 </html>
