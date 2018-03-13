@@ -1,6 +1,6 @@
 module ApplicationHelper
 	def logged_in
-		if current_user.is_a?(User)
+		if !(current_user.is_a?(GuestUser))
         (link_to "Log out",destroy_user_session_path,method: :delete).html_safe
     	else
         "#{(link_to "Log in",new_user_session_path).html_safe}<br>#{(link_to "Sign Up!",new_user_registration_path).html_safe}".html_safe

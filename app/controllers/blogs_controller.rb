@@ -1,10 +1,15 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  access all: [:show, :index], user: {except: [:destroy,:new,:create,:update,:edit]}, site_admin: :all
   layout "blog"
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    if logged_in?(:site_admin)
+      @blogs = Blog.all
+    else
+      @blogs = Blog.where(status:1)
+    end
   end
   
   def toggle_status

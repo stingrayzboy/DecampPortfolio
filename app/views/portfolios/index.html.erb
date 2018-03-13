@@ -1,2 +1,2 @@
-	<p><%=button_to "New",new_portfolio_path,method:"get"%></p>
+	<p><%=button_to "New",new_portfolio_path,method:"get" if logged_in?(:site_admin)%></p>
 	<%= render partial:"portfolio",collection: @portfolio_items%>
