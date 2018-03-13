@@ -5,6 +5,6 @@
 		<%=image_tag portfolio.thumb_image||"https://briggo.com/wp-content/uploads/2013/03/image-alignment-300x200-300x200.jpg"%>
 		</div>	
 		<br>
-		<%= button_to "Edit",edit_portfolio_path(portfolio),method:"get"%>
-		<%= button_to "Delete",portfolio_path(portfolio),method:"delete",data:{confirm:"Are you Sure?"}%>
+		<%= button_to "Edit",edit_portfolio_path(portfolio),method:"get" if logged_in?(:site_admin)%>
+		<%= button_to "Delete",portfolio_path(portfolio),method:"delete",data:{confirm:"Are you Sure?"} if logged_in?(:site_admin)%>
 			
