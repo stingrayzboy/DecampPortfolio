@@ -16,4 +16,7 @@ module ApplicationHelper
       		content_tag :p ,greeting,class:"social-handle"
     	end
 	end
+  def set_copyright
+    Platipus::Renderer.copyright "Faraz Noor","All rights Reserved"
+  end
 end
