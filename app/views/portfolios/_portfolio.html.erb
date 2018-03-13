@@ -1,0 +1,10 @@
+<div>
+		<p><%=link_to portfolio.title,show_portfolio_path(portfolio.id)%></p>
+		<p><%=portfolio.subtitle%></p>
+		<!-- <p><%=portfolio.body%></p> -->
+		<%=image_tag portfolio.thumb_image||"https://briggo.com/wp-content/uploads/2013/03/image-alignment-300x200-300x200.jpg"%>
+		</div>	
+		<br>
+		<%= button_to "Edit",edit_portfolio_path(portfolio),method:"get"%>
+		<%= button_to "Delete",portfolio_path(portfolio),method:"delete",data:{confirm:"Are you Sure?"}%>
+			

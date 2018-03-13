@@ -9,7 +9,7 @@ module ApplicationHelper
 	end
 
 
-	def session_module layout_name
+	def session_module layout_name=nil
 		if session[:source]
 
       		greeting="Thanks From Visiting From #{session[:source].inspect}"
