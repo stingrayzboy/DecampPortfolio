@@ -21,6 +21,11 @@
     <%= form.text_area :body, id: :blog_body %>
   </div>
 
+  <div class="field">
+    <%= form.label :topic_id %>
+    <%= form.number_field :topic_id, id: :blog_body %>
+  </div>
+  
   <div class="actions">
     <%= form.submit %>
   </div>

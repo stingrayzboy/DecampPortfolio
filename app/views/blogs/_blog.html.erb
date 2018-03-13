@@ -1,6 +1,7 @@
 <tr>
         <td><%= blog.title %></td>
         <td><%= blog.body %></td>
+        <td><%= time_ago_in_words(blog.created_at)+" ago"%></td>
         <td><%= button_to blog.status.to_s.capitalize,toggle_status_blog_path(blog) %></td>
         <td><%= link_to 'Show', blog %></td>
         <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
