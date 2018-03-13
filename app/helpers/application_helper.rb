@@ -7,4 +7,13 @@ module ApplicationHelper
         
     	end
 	end
+
+
+	def session_module layout_name
+		if session[:source]
+
+      		greeting="Thanks From Visiting From #{session[:source].inspect}"
+      		content_tag :p ,greeting,class:"social-handle"
+    	end
+	end
 end

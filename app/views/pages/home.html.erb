@@ -1,6 +1,9 @@
 <h2>Hi <%=current_user.first_name%></h2>
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%=content_tag :p ,class:"my-spl-class" do %>
+Find me in app/views/pages/home.html.erb
+<%end%>
+
 <%=@pages.inspect%>
 <h1>this </h1>
 <%=@skills.inspect%>

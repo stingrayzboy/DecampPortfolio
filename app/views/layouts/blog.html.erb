@@ -14,12 +14,10 @@
   		<p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
 
-      <%=logged_in%>
+      
     <%= yield %>
     <hr>
-    <%if session[:source]%>
-      Thanks From Visiting From <%=session[:source].inspect%>
-    <%end%>
+    <%=session_module%>
     <%=render "shared/nav_bar",location:"bottom"%>
   </body>
 </html>
