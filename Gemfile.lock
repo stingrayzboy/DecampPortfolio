@@ -99,6 +99,8 @@ GEM
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
+    petergate (1.8.1)
+      activerecord (> 4.0.0)
     pg (0.21.0)
     platipus (0.1.0)
     popper_js (1.12.9)
@@ -199,6 +201,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  petergate (~> 1.8, >= 1.8.1)
   pg (~> 0.18)
   platipus (~> 0.1.0)
   pry-byebug
