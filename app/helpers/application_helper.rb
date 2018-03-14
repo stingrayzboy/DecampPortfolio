@@ -1,9 +1,9 @@
 module ApplicationHelper
-	def logged_in
+	def logged_in style
 		if !(current_user.is_a?(GuestUser))
-        (link_to "Log out",destroy_user_session_path,method: :delete,class:"nav-link").html_safe
+        (link_to "Log out",destroy_user_session_path,method: :delete,class:style).html_safe
     	else
-        "#{(link_to "Log in",new_user_session_path,class:'nav-link').html_safe}#{(link_to "Sign Up!",new_user_registration_path,class:'nav-link').html_safe}".html_safe
+        "#{(link_to "Log in",new_user_session_path,class:style).html_safe}#{(link_to "Sign Up!",new_user_registration_path,class:style).html_safe}".html_safe
         
     	end
 	end
