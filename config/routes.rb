@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   resources :blogs do
   	member do
   		post :toggle_status
+
   	end
   end
+  get "topic/:topic_id",to:"blogs#index",as:"blog_topic"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

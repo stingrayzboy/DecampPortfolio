@@ -5,10 +5,16 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
+    @topics=Topic.all
+    conditions={}
+    if params[:topic_id]
+      conditions.merge! topic_id:params[:topic_id]
+    end
     if logged_in?(:site_admin)
-      @blogs = Blog.all
+      @blogs = Blog.page(params[:page]).per(4).where(conditions)
     else
-      @blogs = Blog.where(status:1)
+      conditions.merge! status:"1"
+      @blogs = Blog.page(params[:page]).per(4).where(conditions)
     end
   end
   
