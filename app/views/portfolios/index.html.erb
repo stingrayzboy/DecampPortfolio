@@ -1,2 +1,14 @@
-	<p><%=button_to "New",new_portfolio_path,method:"get" if logged_in?(:site_admin)%></p>
-	<%= render partial:"portfolio",collection: @portfolio_items%>
+<main role="main">
+       <%= render "shared/portfolio_masthead"%>
+ 
+<p><%=button_to "New",new_portfolio_path,method:"get" if logged_in?(:site_admin)%></p>
+<div class="album py-5 bg-light">
+	<div class="container">
+	  <div class="row">
+
+			<%= render partial:"portfolio",collection: @portfolio_items%>
+
+	  </div>
+	</div>
+</div>
+</main>	
