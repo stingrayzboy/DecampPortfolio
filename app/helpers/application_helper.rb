@@ -1,5 +1,5 @@
 module ApplicationHelper
-	def logged_in style
+	def logged_in style=nil
 		if !(current_user.is_a?(GuestUser))
         (link_to "Log out",destroy_user_session_path,method: :delete,class:style).html_safe
     	else
