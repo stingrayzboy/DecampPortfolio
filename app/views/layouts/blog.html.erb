@@ -14,20 +14,13 @@
 
   <body>
     <div class="container">
-      <%=render "shared/nav_bar_blog",location:"bottom"%>
-
-  		<p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-    
-      
-    <%= yield %>
-
+      <%= render "shared/nav_bar_blog",location:"bottom"%>
+      <%= yield %>
     </div>
 
     
     <footer class="blog-footer">
       <%=session_module%>
-      
       <%=set_copyright%>
     </footer>
     

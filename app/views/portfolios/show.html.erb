@@ -7,7 +7,7 @@
 				<h1><%=@portfolio.title%></h1>
 				<h3><%=@portfolio.subtitle%></h3>
 
-				<p><%=@portfolio.body%></p>
+				<p><%=raw @portfolio.body%></p>
 				<h3>Technologies Used:</h3>
 				<%@portfolio.technologies.each do |f|%>
 				<p><%=f.name%></p>
