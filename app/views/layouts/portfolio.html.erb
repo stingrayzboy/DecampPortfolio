@@ -3,22 +3,61 @@
   <head>
     <title><%=@page_title%></title>
     <%= csrf_meta_tags %>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag    'portfolios', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    
-      <%=render "shared/nav_bar",location:"top"%>
-  		<p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+    <!-- start of nav bar -->
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted"><%=render "shared/about"%></p>
+            </div>
+            
+            <%= render "shared/nav_bar_portfolio",location:"top"%>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <strong>Faraz Noor</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- end of nav bar -->
+      <main role="main">
+        <%= render "shared/portfolio_masthead" unless logged_in?(:site_admin) %>
+        <%= yield %>
+      </main>   
+  		
       
+     
+
       
-    <%= yield %>
+     
     <hr>
-    <%=session_module%>
-    <%=set_copyright%>
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p><%=set_copyright%></p>
+        <p><%=session_module%></p>
+      </div>
+    </footer>
+    
+    
     
   </body>
 </html>

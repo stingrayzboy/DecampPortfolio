@@ -1,15 +1,10 @@
-<h2>Hi <%=current_user.first_name%></h2>
-<h1>Pages#home</h1>
-<%=content_tag :p ,class:"my-spl-class" do %>
-Find me in app/views/pages/home.html.erb
-<%end%>
+	<main role="main" class="inner cover">
+        <h1 class="cover-heading">Welcome</h1>
+        <p class="lead">
+        	Software development is like an art,anybody can do it with the basic knowledge,but you need to love what you do inorder to achieve a masterpiece.<br>
 
-<%=@pages.inspect%>
-<h1>this </h1>
-<%=@skills.inspect%>
-<hr>
-
-
-
-
-
+        </p>
+        <p class="lead">
+          <%=link_to "About Me",pages_about_path,class:"btn btn-lg btn-secondary"%>
+        </p>
+    </main>

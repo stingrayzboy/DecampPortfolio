@@ -30,6 +30,7 @@ class Portfolio < ApplicationRecord
 		@blog2=Portfolio.new
 		@blog2.title=blog.title
 		@blog2.body=blog.body
+		@blog2.subtitle=blog.subtitle
 		#byebug
 		@blog2.technologies_attributes=attribs2
 		blog.destroy

@@ -1,8 +1,9 @@
-<div class=<%=location%>>
-	<div><%=link_to "Home",root_path%></div>
-    <div><%=link_to "About",pages_about_path%></div>
-    <div><%=link_to "Contact",pages_contact_path%></div>
-    <div><%=link_to "Blog",blogs_path%></div>
-    <div><%=link_to "Portfolio",portfolios_path%></div>
-    <%=logged_in%>
-</div>
+<header class="masthead mb-auto">
+	<div class="inner">
+		<h3 class="masthead-brand">Faraz Noor</h3>
+		<nav class="nav nav-masthead app-nav">
+        	<%= nav_helper 'nav-link', '','' %>
+            <%=logged_in "nav-link"%>
+        </nav>
+    </div>
+</header>

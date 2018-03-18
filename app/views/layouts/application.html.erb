@@ -2,22 +2,27 @@
 <html>
   <head>
     <title><%=@page_title%></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%=render "shared/nav_bar",location:"top"%>
+  <body class="text-center">
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+   
+
+    <%=render "shared/nav_bar"%>
 
   		<p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
 
       
     <%= yield %>
-    <hr>
-    <%=session_module%>
-    <%=set_copyright%>
+    <%=render "shared/footer"%>
+  </div>
   </body>
 </html>
