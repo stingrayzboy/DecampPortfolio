@@ -3,7 +3,7 @@ class PortfoliosController < ApplicationController
 	layout "portfolio"
 
 	def index
-		@portfolio_items=Portfolio.all
+		@portfolio_items=Portfolio.by_position
 	end
 
 	def edit
