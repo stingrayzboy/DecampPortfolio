@@ -19,7 +19,8 @@
               <h4 class="text-white">About</h4>
               <p class="text-muted">I began my Journey as an average student, living the average life, being the average person. But I always had in intention of having, from being a class flunker to a topper, from being a waterboy to a state level goalie, from being a computer hater to a computer lover, I have always achieved what I wanted.</p>
             </div>
-            <%=render "shared/nav_bar_portfolio",location:"top"%>
+            
+            <%= render "shared/nav_bar_portfolio",location:"top"%>
           </div>
         </div>
       </div>
@@ -35,12 +36,15 @@
       </div>
     </header>
     <!-- end of nav bar -->
-      
+      <main role="main">
+        <%= render "shared/portfolio_masthead"%>
+        <%= yield %>
+      </main>   
   		
       
      
 
-      <%= yield %>
+      
      
     <hr>
     <footer class="text-muted">
