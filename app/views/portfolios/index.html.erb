@@ -1,7 +1,7 @@
 <div class="album py-5 bg-light">
 	<p><%=button_to "New",new_portfolio_path,method:"get",class:"btn btn-success btn-block" if logged_in?(:site_admin)%></p>
 	<div class="container">
-	  <div class="row">
+	  <div class="row <%='sortable' if logged_in?(:site_admin)%>">
 
 			<%= render partial:"portfolio",collection: @portfolio_items%>
 

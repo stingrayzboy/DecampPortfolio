@@ -36,5 +36,8 @@ class Portfolio < ApplicationRecord
 		blog.destroy
 		return @blog2.save
 	end
+	def self.by_position
+		order("position ASC")
+	end
 	
 end

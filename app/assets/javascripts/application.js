@@ -11,9 +11,16 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
-//= require_tree .
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require html.sortable
+//= require jquery-ui
 //= require ckeditor/init
+//= require turbolinks
+//= require_tree .
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+  }
+});
