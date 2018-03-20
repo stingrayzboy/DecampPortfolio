@@ -6,6 +6,15 @@ class PortfoliosController < ApplicationController
 		@portfolio_items=Portfolio.by_position
 	end
 
+	def sort
+		if logged_in?(:site_admin)
+			params[:order].each do |key,value|
+				Portfolio.find(value[:id]).update(position: value[:position])
+			end
+		end
+		render body: nil
+	end
+
 	def edit
 		@portfolio=Portfolio.find(params[:id])
 
