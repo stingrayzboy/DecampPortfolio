@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
-	access all: [:show, :index], user: {except: [:destroy,:new,:create,:update,:edit]}, site_admin: :all
+	access all: [:show, :index], user: {except: [:destroy,:new,:create,:update,:edit,:sort]}, site_admin: :all
 	layout "portfolio"
 
 	def index
@@ -7,11 +7,11 @@ class PortfoliosController < ApplicationController
 	end
 
 	def sort
-		if logged_in?(:site_admin)
+		
 			params[:order].each do |key,value|
 				Portfolio.find(value[:id]).update(position: value[:position])
 			end
-		end
+		
 		render body: nil
 	end
 
