@@ -19,3 +19,4 @@
 .byebug_history
 #no need to commit secret
 /config/secrets.yml
+.env
