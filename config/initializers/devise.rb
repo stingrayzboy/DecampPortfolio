@@ -15,6 +15,7 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'support@devcamp.com'
+  config.secret_key = '94e65ff0c7cfe8027e8f0ac96755067dfbbc8cf802c2c096474c372481ae4aaf4ebebb31d1b40b25a647b84ff72e52556c31ba1fd99ec782d66170f9312980cf'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

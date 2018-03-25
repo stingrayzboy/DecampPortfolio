@@ -12,13 +12,13 @@
           </div>
           <div>
             <label class="btn btn-success">
-              Upload Thumbnail<%= form.file_field :main_image,style:"display: none;"%>
+              Upload Main Image<%= form.file_field :main_image,style:"display: none;"%>
             </label>
             
           </div>
           <div>
             <label class="btn btn-success">
-              Upload Main Image<%= form.file_field :thumb_image,style:"display: none;"%>
+              Upload Thumb Image<%= form.file_field :thumb_image,style:"display: none;"%>
             </label>
             
           </div>
@@ -40,9 +40,7 @@
           <div class="form-group">
             <%= form.submit class:"btn btn-primary btn-block" %>
           </div>
-        </div>
-      
-        
+        </div>   
     </div>    
   <% end %>
 </div>

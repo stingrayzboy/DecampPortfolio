@@ -16,6 +16,7 @@
 //= require bootstrap
 //= require html.sortable
 //= require jquery-ui
+//= require cocoon
 //= require ckeditor/init
 //= require turbolinks
 //= require_tree .
