@@ -14,6 +14,14 @@
   <body class="text-center">
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
    
+   <%=video_tag(
+      'cover.mp4',
+      id:'background',
+      autoplay:true,
+      loop:true,
+      muted:true,
+      poster:'covers/wallpaper1.jpg'
+   )%>
 
     <%=render "shared/nav_bar"%>
 

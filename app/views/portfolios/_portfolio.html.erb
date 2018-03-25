@@ -1,7 +1,7 @@
 
 <div class="col-md-4">
   <div class="card mb-4 box-shadow" data-id="<%=portfolio.id%>">
-    <%=image_tag portfolio.thumb_image||"https://briggo.com/wp-content/uploads/2013/03/image-alignment-300x200-300x200.jpg",class:"card-img-top"%>
+    <%=image_tag portfolio_img(portfolio.thumb_image,"thumb"),class:"card-img-top"%>
     <div class="card-body">
       <p class="card-title"><%=link_to portfolio.title,show_portfolio_path(portfolio.id)%></p>
       <p class="card-text"><%=portfolio.subtitle%></p>
