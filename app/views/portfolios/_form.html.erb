@@ -3,7 +3,7 @@
   <%= form_with(model: data, local: true) do |form|%>
     <% if data.errors.any? %>
       <% data.errors.full_messages.each do |error|%>
-          <%= js add_gritter( error.to_s,title:"Error", sticky:false,time:2000) %>
+          <%= alerts(error) %>
       <%end%>
   <% end %>
 
