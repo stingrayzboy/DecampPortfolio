@@ -2,10 +2,12 @@
 <h2 class="container">Tweets about Ruby on Rails</h2>
 <div class="row">
   <%@tweets.each do |tweet|%>
-  <div class="card col-sm-4">
-      <div class="card-title"><%=tweet.split(":").first%></div>
-      <%tweet.slice!(tweet.split(":").first+":")%>
-      <%=twitter_parser tweet%>
+  <div class="card col-md-4">
+      <div class="twitter">
+        <div class="card-title"><%=tweet.split(":").first%></div>
+        <%tweet.slice!(tweet.split(":").first+":")%>
+        <%=twitter_parser tweet%>
+      </div>
   </div>
   <%end%>
 </div>
