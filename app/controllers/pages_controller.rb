@@ -8,4 +8,9 @@ class PagesController < ApplicationController
 
   def contact
   end
+  
+  def tweets
+  	@tweets=TwitterPateli.twitter_search
+  end
+
 end

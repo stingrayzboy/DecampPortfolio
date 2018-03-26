@@ -6,7 +6,7 @@ module TwitterPateli
 		  config.access_token        = ENV.fetch("TWITTER_ACCESS_TOKEN")
 		  config.access_token_secret = ENV.fetch("TWITTER_ACCESS_SECRET")
 		end
-		client.search("#dragonballsuper", result_type: "recent").take(6).collect do |tweet|
+		client.search("#rubyonrails", result_type: "recent").take(6).collect do |tweet|
 			"#{tweet.user.screen_name}: #{tweet.text}"
 		end
 	end

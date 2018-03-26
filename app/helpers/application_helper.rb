@@ -42,6 +42,10 @@ module ApplicationHelper
         url: portfolios_path,
         title: 'Portfolio'
       },
+      {
+        url: pages_tweets_path,
+        title: 'Tweets'
+      }
     ]
   end
 

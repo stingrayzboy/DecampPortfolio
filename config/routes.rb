@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get 'pages/contact'
 
+  get 'pages/tweets'
+
   #get 'toggle/:id', to:'blogs#bazzinga', as:'toggle'
 
   resources :blogs do
