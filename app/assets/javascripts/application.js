@@ -19,6 +19,7 @@
 //= require cocoon
 //= require gritter
 //= require ckeditor/init
+//= require cable
 //= require turbolinks
 //= require_tree .
 $.ajaxSetup({
