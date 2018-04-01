@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
-  access all: [:show, :index], user: {except: [:destroy,:new,:create,:update,:edit]}, site_admin: :all
+  access all: [:show, :index], user: {except: [:destroy,:new,:create,:update,:edit,:toggle_status]}, site_admin: :all
   layout "blog"
   # GET /blogs
   # GET /blogs.json
@@ -10,12 +10,10 @@ class BlogsController < ApplicationController
     if params[:topic_id]
       conditions.merge! topic_id:params[:topic_id]
     end
-    if logged_in?(:site_admin)
-      @blogs = Blog.page(params[:page]).per(4).where(conditions)
-    else
+    if !logged_in?(:site_admin)
       conditions.merge! status:"1"
-      @blogs = Blog.page(params[:page]).per(4).where(conditions)
     end
+      @blogs = Blog.recent.page(params[:page]).per(4).where(conditions)
   end
   
   def toggle_status

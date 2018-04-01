@@ -6,4 +6,7 @@ class Blog < ApplicationRecord
 	validates_presence_of :title,:body
 	has_many :comments,dependent: :destroy
 	
+	def self.recent
+		order("created_at DESC")
+	end
 end
