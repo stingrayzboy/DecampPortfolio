@@ -1,11 +1,11 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  before_action :set_topic, only: [:show,:index]
   access all: [:show, :index], user: {except: [:destroy,:new,:create,:update,:edit,:toggle_status]}, site_admin: :all
   layout "blog"
   # GET /blogs
   # GET /blogs.json
   def index
-    @topics=Topic.all
     conditions={}
     if params[:topic_id]
       conditions.merge! topic_id:params[:topic_id]
@@ -30,6 +30,7 @@ class BlogsController < ApplicationController
   def show
     if logged_in?(:site_admin) || @blog.published?
       @blog = Blog.includes(:comments).friendly.find(params[:id])
+
       @comment=Comment.new
     else
       redirect_to blogs_path,notice: "You are unauthorized to view this page"
@@ -90,6 +91,10 @@ class BlogsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
       @blog = Blog.friendly.find(params[:id])
+    end
+
+    def set_topic
+      @topics=Topic.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

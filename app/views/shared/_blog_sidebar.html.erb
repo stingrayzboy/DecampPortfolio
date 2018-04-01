@@ -16,4 +16,17 @@
               <a href="mailto:faraznoor75@gmail.com?subject=DevCamp" target="_blank"><%=fa_icon "at"%></a>&nbsp;&nbsp;
             </div>
           </div>
+
+          <%if @topics%>
+            <div class="p-3">
+              <h4 class="font-italic">Topics</h4>
+              <ol class="list-unstyled mb-0">
+                <%@topics.each do |topic|%>
+                  <li><%= link_to topic.title,blog_topic_path(topic.id)%></li>
+                <%end%>
+              </ol>
+            </div>
+          <%else%>
+          
+          <%end%>
 </aside><!-- /.blog-sidebar -->
