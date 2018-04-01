@@ -1,25 +1,30 @@
 <main role="main" class="container">
-      <div class="row">
-        <div class="col-md-8 blog-main">
-          <h3 class="pb-3 mb-4 font-italic border-bottom">
-            <%=@blog.topic.title%>
-          </h3>
+  <div class="row">
+    <div class="col-md-8 blog-main">
+      <h3 class="pb-3 mb-4 font-italic border-bottom">
+        <%=@blog.topic.title%>
+      </h3>
 
-          <div class="blog-post">
-            <h2 class="blog-post-title"><%= @blog.title %></h2>
-            <p class="blog-post-meta"><%= time_ago_in_words @blog.created_at %> ago</p>
-            <%= @blog.body.html_safe %>
-            
-          </div><!-- /.blog-post -->
+      <div class="blog-post">
+        <h2 class="blog-post-title"><%= @blog.title %></h2>
+        <p class="blog-post-meta"><%= time_ago_in_words @blog.created_at %> ago</p>
+        <%= @blog.body.html_safe %>
+        
+      </div><!-- /.blog-post -->
 
-          <nav class="blog-pagination">
-            <%= link_to 'Back', blogs_path,class:"btn btn-outline-primary" %>
-            <%= link_to 'Edit', edit_blog_path(@blog),class:"btn btn-outline-secondary" if logged_in?(:site_admin) %>
-          </nav>
+      <nav class="blog-pagination">
+        <%= link_to 'Back', blogs_path,class:"btn btn-outline-primary" %>
+        <%= link_to 'Edit', edit_blog_path(@blog),class:"btn btn-outline-secondary" if logged_in?(:site_admin) %>
+      </nav>
+      <%=render 'comments/comment_form',comment:@comment%>
 
-        </div><!-- /.blog-main -->
+      <div id="comments" data-blog-id="<%= @blog.id %>">
+        <%=render @blog.comments%>
+      </div>
+      <!-- End of comments -->
+    </div><!-- /.blog-main -->
 
-        <%= render "shared/blog_sidebar"%>
-      </div><!-- /.row -->
+    <%= render "shared/blog_sidebar"%>
+  </div><!-- /.row -->
 
-    </main>
+</main>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :users,path: "",path_names:{:sign_in=>"login",sign_out:"logout",sign_up:"register"}
 
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
 
   	end
   end
+  mount ActionCable.server => "/cable"
+  
   get "topic/:topic_id",to:"blogs#index",as:"blog_topic"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
