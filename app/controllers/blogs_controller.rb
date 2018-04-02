@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
-  before_action :set_topic, only: [:show,:index,:edit,:new]
+  before_action :set_topic_with_blogs, only: [:show,:index]
+  before_action :set_topic , except:[:show,:index]
   access all: [:show, :index], user: {except: [:destroy,:new,:create,:update,:edit,:toggle_status]}, site_admin: :all
   layout "blog"
   # GET /blogs
@@ -93,10 +94,12 @@ class BlogsController < ApplicationController
       @blog = Blog.friendly.find(params[:id])
     end
 
+    def set_topic_with_blogs
+      @topics=Topic.topic_with_blogs
+    end
     def set_topic
       @topics=Topic.all
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
       params.require(:blog).permit(:title, :body,:topic_id)

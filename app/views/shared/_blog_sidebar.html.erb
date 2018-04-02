@@ -3,8 +3,17 @@
             <h4 class="font-italic">About</h4>
             <p class="mb-0"><%=render "shared/about"%></p>
           </div>
-
-          
+          <!-- Make a topic panel for topics that have blogs -->
+          <%if @topics%>
+            <div class="p-3">
+              <h4 class="font-italic">Topics</h4>
+              <ol class="list-unstyled mb-0">
+                <%@topics.each do |topic|%>
+                  <li><%= link_to topic.title,blog_topic_path(topic.id)%></li>
+                <%end%>
+              </ol>
+            </div>
+          <%end%>
 
           <div class="p-3">
             <h4 class="font-italic">Elsewhere</h4>
@@ -16,17 +25,4 @@
               <a href="mailto:faraznoor75@gmail.com?subject=DevCamp" target="_blank"><%=fa_icon "at"%></a>&nbsp;&nbsp;
             </div>
           </div>
-
-          <%if @topics%>
-            <div class="p-3">
-              <h4 class="font-italic">Topics</h4>
-              <ol class="list-unstyled mb-0">
-                <%@topics.each do |topic|%>
-                  <li><%= link_to topic.title,blog_topic_path(topic.id)%></li>
-                <%end%>
-              </ol>
-            </div>
-          <%else%>
-          
-          <%end%>
 </aside><!-- /.blog-sidebar -->
