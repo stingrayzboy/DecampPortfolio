@@ -8,6 +8,9 @@ module ApplicationHelper
     	end
 	end
 
+  def page_title from
+    "Faraz Noor | #{from}"
+  end
 
 	def session_module style=nil
 		if session[:source]
