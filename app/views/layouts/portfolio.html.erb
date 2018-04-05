@@ -22,6 +22,7 @@
             
             <%= render "shared/nav_bar_portfolio",location:"top"%>
             <%= render "shared/alerts"%>
+
           </div>
         </div>
       </div>
@@ -39,6 +40,7 @@
     <!-- end of nav bar -->
       <main role="main">
         <%= render "shared/portfolio_masthead" unless logged_in?(:site_admin) %>
+        <%=session_module("alert alert-warning")%>
         <%= yield %>
       </main>   
   		
@@ -53,7 +55,7 @@
         <p class="float-right">
           <a href="#">Back to top</a>
         </p>
-        <p><%=set_copyright%></p>
+        
         <p><%=session_module%></p>
       </div>
     </footer>
