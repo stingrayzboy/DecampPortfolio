@@ -14,9 +14,13 @@
       <%else%>
         <p class="card-text mb-auto"><%= raw blog.body[0..1000]+"..."%></p>
       <%end%>
-      <%= link_to 'Edit', edit_blog_path(blog) if logged_in?(:site_admin)%>
-      <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin) %>
-      
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">          
+          <%= link_to fa_icon("pencil"), edit_blog_path(blog),class:"breadcrumb-item" if logged_in?(:site_admin)%>
+          <%= link_to fa_icon("trash"), blog, method: :delete, data: { confirm: 'Are you sure?' },class:"breadcrumb-item" if logged_in?(:site_admin) %>
+        </ol>
+      </nav>
     </div>
       <%if blog.status=="draft"%>
         <%button="btn btn-danger"%>
