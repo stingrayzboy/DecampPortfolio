@@ -14,15 +14,15 @@
       <%else%>
         <p class="card-text mb-auto"><%= raw blog.body[0..1000]+"..."%></p>
       <%end%>
-      <%= link_to 'Edit', edit_blog_path(blog) if logged_in?(:site_admin)%>
-      <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin) %>
-      
+      <%if logged_in?(:site_admin)%>
+        <%=render "blogs/admin_toggles",blog:blog%>
+        <%end%>
     </div>
       <%if blog.status=="draft"%>
         <%button="btn btn-danger"%>
       <%else%>
         <%button="btn btn-success"%>
       <%end%>
-    	<%= button_to blog.status.to_s.capitalize,toggle_status_blog_path(blog),class:button if logged_in?(:site_admin) %>
+    	
   </div>
 </div>

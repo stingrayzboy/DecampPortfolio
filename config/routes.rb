@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   	end
   end
   mount ActionCable.server => "/cable"
+
+  delete "bazzinga/:id",to:"comments#destroy",as:"comment"
+  #resources :comments
   
   get "topic/:topic_id",to:"blogs#index",as:"blog_topic"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

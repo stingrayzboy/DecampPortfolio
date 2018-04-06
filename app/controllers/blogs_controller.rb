@@ -1,21 +1,20 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
-  access all: [:show, :index], user: {except: [:destroy,:new,:create,:update,:edit]}, site_admin: :all
+  before_action :set_topic_with_blogs, only: [:show,:index]
+  before_action :set_topic , except:[:show,:index]
+  access all: [:show, :index], user: {except: [:destroy,:new,:create,:update,:edit,:toggle_status]}, site_admin: :all
   layout "blog"
   # GET /blogs
   # GET /blogs.json
   def index
-    @topics=Topic.all
     conditions={}
     if params[:topic_id]
       conditions.merge! topic_id:params[:topic_id]
     end
-    if logged_in?(:site_admin)
-      @blogs = Blog.page(params[:page]).per(4).where(conditions)
-    else
+    if !logged_in?(:site_admin)
       conditions.merge! status:"1"
-      @blogs = Blog.page(params[:page]).per(4).where(conditions)
     end
+      @blogs = Blog.recent.page(params[:page]).per(4).where(conditions)
   end
   
   def toggle_status
@@ -30,13 +29,19 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-    @blog = Blog.includes(:comments).friendly.find(params[:id])
-    @comment=Comment.new
+    if logged_in?(:site_admin) || @blog.published?
+      @blog = Blog.includes(:comments).friendly.find(params[:id])
+
+      @comment=Comment.new
+    else
+      redirect_to blogs_path,notice: "You are unauthorized to view this page"
+    end
+
   end
 
   # GET /blogs/new
   def new
-    @blog = Blog.new
+    @blog = Blog.new(topic_id:1)
   end
 
   # GET /blogs/1/edit
@@ -89,6 +94,12 @@ class BlogsController < ApplicationController
       @blog = Blog.friendly.find(params[:id])
     end
 
+    def set_topic_with_blogs
+      @topics=Topic.topic_with_blogs
+    end
+    def set_topic
+      @topics=Topic.all
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
       params.require(:blog).permit(:title, :body,:topic_id)

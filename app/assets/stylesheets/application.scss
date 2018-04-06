@@ -161,3 +161,17 @@ body {
 .twitter a{
   color:blue;
 }
+.app-about-container{
+  width: 110%;
+
+}
+.app-about-container > .card {
+  padding: 5%;
+}
+.app-about-container a {
+  color:red;
+}
+.card-block{
+  padding:5px;
+  margin:5px 0px 5px 0px;
+}

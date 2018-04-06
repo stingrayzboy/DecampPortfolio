@@ -1,0 +1,7 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">          
+    <%= link_to fa_icon("pencil"), edit_blog_path(blog),class:"breadcrumb-item"%>
+    <%= link_to fa_icon("trash"), blog, method: :delete, data: { confirm: 'Are you sure?' },class:"breadcrumb-item" %>
+    <%= link_to fa_icon("file"),toggle_status_blog_path(blog),method: :post,class:"breadcrumb-item",style:blog_status_color(blog)%>
+  </ol>
+</nav>

@@ -8,14 +8,17 @@ module ApplicationHelper
     	end
 	end
 
+  def page_title from
+    "Faraz Noor | #{from}"
+  end
 
-	def session_module layout_name=nil
+	def session_module style=nil
 		if session[:source]
-
-      		greeting="Thanks From Visiting From #{session[:source].inspect}"
-      		content_tag :p ,greeting,class:"social-handle"
+      		greeting="Thanks From Visiting From #{session[:source].inspect} feel free to #{link_to 'Contact Me',pages_contact_path} if you would like to work together."
+      		content_tag :div ,greeting.html_safe,class: style
     	end
 	end
+
   def set_copyright
     Platipus::Renderer.copyright "Faraz Noor","All rights Reserved"
   end

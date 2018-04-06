@@ -4,7 +4,18 @@
       <h3 class="pb-3 mb-4 font-italic border-bottom">
         <%=@blog.topic.title%>
       </h3>
-
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <%=link_to "Home",root_path,class:"breadcrumb-item"%>
+          <%=link_to "Blogs",blogs_path,class:"breadcrumb-item"%>
+          <%= link_to @blog.topic.title,blog_topic_path(@blog.topic.id),class:"breadcrumb-item" %>
+          <%=link_to @blog.title,"#",class:"breadcrumb-item active"%>
+          
+        </ol>
+          <span class="pull-right">
+            <%=link_to fa_icon("trash"),@blog,method: :delete,data:{confirm:"Are You Sure?"} if logged_in?(:site_admin) %>
+          </span>
+      </nav>
       <div class="blog-post">
         <h2 class="blog-post-title"><%= @blog.title %></h2>
         <p class="blog-post-meta"><%= time_ago_in_words @blog.created_at %> ago</p>

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%=@page_title%></title>
+    <title><%=page_title "Portfolio"%></title>
     <%= csrf_meta_tags %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= favicon_link_tag 'favicon/favicon.ico'%>
     <%= stylesheet_link_tag    'portfolios', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -22,6 +23,7 @@
             
             <%= render "shared/nav_bar_portfolio",location:"top"%>
             <%= render "shared/alerts"%>
+
           </div>
         </div>
       </div>
@@ -39,6 +41,7 @@
     <!-- end of nav bar -->
       <main role="main">
         <%= render "shared/portfolio_masthead" unless logged_in?(:site_admin) %>
+        <%=session_module("alert alert-warning")%>
         <%= yield %>
       </main>   
   		
@@ -53,7 +56,7 @@
         <p class="float-right">
           <a href="#">Back to top</a>
         </p>
-        <p><%=set_copyright%></p>
+        
         <p><%=session_module%></p>
       </div>
     </footer>
