@@ -1,3 +1,19 @@
+User.create(
+	name:"Faraz Noor",
+	email:"faraznoor75@gmail.com",
+	password:"boomla1!",
+	password_confirmation:"boomla1!",
+	roles:"site_admin"
+)
+puts "Faraz created as an admin"
+
+User.create(
+	name:"Stingrayz Boy",
+	email:"stingrayzboy@gmail.com",
+	password:"boomla1!",
+	password_confirmation:"boomla1!"
+)
+puts "Stingrayz Boy created as a guest user"
 3.times do|topic|
 	Topic.create!(
 		title:"Topic #{topic+1}"
