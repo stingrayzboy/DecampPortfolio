@@ -12,7 +12,7 @@
       <%if logged_in?(:site_admin)%>
         <p class="card-text mb-auto"><%= raw blog.body[0..70]+"..."%></p>
       <%else%>
-        <p class="card-text mb-auto"><%= raw blog.body[0..1000]+"..."%></p>
+        <p class="card-text mb-auto"><%= raw blog.body%></p>
       <%end%>
       <%if logged_in?(:site_admin)%>
         <%=render "blogs/admin_toggles",blog:blog%>
