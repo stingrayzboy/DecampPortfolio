@@ -10,7 +10,7 @@
       </h3>
       <div class="mb-1 text-muted"><%= time_ago_in_words(blog.created_at)+" ago"%></div>
       <%if logged_in?(:site_admin)%>
-        <p class="card-text mb-auto"><%= raw blog.body[0..70]+"..."%></p>
+        
       <%else%>
         <p class="card-text mb-auto"><%= raw blog.body%></p>
       <%end%>
