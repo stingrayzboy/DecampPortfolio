@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   def home
-  	@page_title="DevCamp Portfolio | Home Page"
     @title="Home"
   end
 
