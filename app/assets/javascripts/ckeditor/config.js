@@ -16,7 +16,7 @@ CKEDITOR.on( 'dialogDefinition', function( ev )
 
 CKEDITOR.editorConfig = function( config )
 {
-config.extraPlugins = 'markdown,youtube';
+config.extraPlugins = 'markdown,youtube,emojione';
 config.removePlugins = 'flash'
 //config.extraPlugins = 'youtube';
 };
