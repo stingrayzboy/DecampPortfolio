@@ -5,5 +5,5 @@ class ApplicationController < ActionController::Base
   include SessionSetting
   include CurrentUserConcern
   include DynamicTitle
-  
+  #comment
 end
