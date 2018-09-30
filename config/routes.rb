@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'new_home/index'
+
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :users,path: "",path_names:{:sign_in=>"login",sign_out:"logout",sign_up:"register"}
 
