@@ -29,4 +29,8 @@
   });
 
 })(jQuery);
+
+<%if params["boom"]%>
+  $("#<%=params["boom"]%>").click();
+<%end%>
 </script>

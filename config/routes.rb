@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
-  get 'new_home/index'
-
+  root 'new_home#index'
+  get 'index/:boom',to: 'new_home#index',as:"new_home_nav"
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :users,path: "",path_names:{:sign_in=>"login",sign_out:"logout",sign_up:"register"}
 
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'portfolio/:id', to:"portfolios#show", as: "show_portfolio"
 
-  root 'pages#home'
+  #root 'pages#home'
 
   get 'pages/about'
 
