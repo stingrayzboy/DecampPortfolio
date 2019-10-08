@@ -1,0 +1,47 @@
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag image_url("covers/new_home_cover_1.JPG"), class:"cover"%>
+        <div class="container">
+          <div class="carousel-caption text-left">
+            <h1 class="text-dark"><i>“The only time success comes before work is in the dictionary.”</i></h1>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag image_url("covers/new_home_cover_2.JPG"), class:"cover"%>
+        <div class="container">
+          <div class="carousel-caption">
+            <h1><i>"I don’t have dreams, I have goals."</i></h1>
+
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag image_url("covers/new_home_cover_3.JPG"), class:"cover"%>
+        <div class="container">
+          <div class="carousel-caption text-right">
+            <h1><i>“Have goals so big you get uncomfortable telling small minded people.”</i></h1>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+ 
+</div>

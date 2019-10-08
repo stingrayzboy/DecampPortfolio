@@ -1,0 +1,22 @@
+	<!DOCTYPE html>
+<html>
+  <head>
+    <title>Faraz Noor</title>
+    <%= csrf_meta_tags %>
+    
+
+    <%= stylesheet_link_tag    'new_application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+  </head>
+
+  <body id="page-top">
+  <main role="main">
+  <%=render 'new_shared/nav'%>  
+      <%= yield %>
+     
+  <%=render 'new_shared/footer'%>
+  </main>
+  </body>
+  <%= render 'new_shared/animation'%> 
+</html>

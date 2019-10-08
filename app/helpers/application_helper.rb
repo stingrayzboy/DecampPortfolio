@@ -51,12 +51,17 @@ module ApplicationHelper
         title: 'Home'
       },
       {
-        url: pages_about_path,
-        title: 'About Me'
+        url: new_home_nav_path("about_click"),
+        title: 'About Me',
+        post: true
       },
       {
-        url: pages_contact_path,
+        url: new_home_nav_path("contact_click"),
         title: 'Contact'
+      },
+      {
+        url: new_home_nav_path("skills_click"),
+        title: 'Skills'
       },
       {
         url: blogs_path,
@@ -65,11 +70,11 @@ module ApplicationHelper
       {
         url: portfolios_path,
         title: 'Portfolio'
-      },
-      {
-        url: pages_tweets_path,
-        title: 'Tweets'
-      }
+       }#,
+      # {
+      #   url: pages_tweets_path,
+      #   title: 'Tweets'
+      # }
     ]
   end
 
@@ -77,7 +82,7 @@ module ApplicationHelper
     nav_links = ''
 
     nav_items.each do |item|
-      nav_links << "#{tag_start}<a href='#{item[:url]}' class='#{style} #{active? item[:url]}'>#{item[:title]}</a>#{tag_end}"
+      nav_links << "#{tag_start}<a href='#{item[:url]}' class='#{style} #{active? item[:url]}'  #{"method=post" if item[:post]}>#{item[:title]}</a>#{tag_end}"
     end
 
     nav_links.html_safe
